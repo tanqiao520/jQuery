@@ -12,7 +12,7 @@
 	}
 	li:nth-child(n+3):nth-child(-n+7){
 			color: red;
-
+	/*CSS选择*/
 	}
 </style>
 <body>
@@ -32,7 +32,8 @@
 </body>
 <script type="text/javascript">
 function change(){
-	$("ul li:gt(1):lt(5)").css("color","blue");
+	// $("ul li:gt(1):lt(5)").css("color","blue"); 方法一
+	$("ul li").slice(2,7).css("color","blue");/*方法二*/
 }
 </script>
 </html>
