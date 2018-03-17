@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style type="text/css">
+	li{
+
+		color: green;
+	}
+	li:nth-child(n+3):nth-child(-n+7){
+			color: red;
+
+	}
+</style>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+	<button onclick="change()">
+			点击
+	</button>
+</body>
+<script type="text/javascript">
+function change(){
+	$("ul li:gt(1):lt(5)").css("color","blue");
+}
+</script>
+</html>
