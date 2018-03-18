@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<style type="text/css">
+		#banner{
+			width: 510px;
+			height:202px;
+			overflow: hidden;
+			margin-left: 300px;
+			margin-top: 100px;
+			position: relative;
+		}
+		#banner>div{
+				width:1300px;
+				position: absolute;
+				left: 0px;
+				top:0px;
+				margin:0;
+				padding: 0;
+				border:none;
+
+		}
+		#banner ul.list1{
+			width:612px;
+			margin:0;
+			padding: 0;
+			border:none;
+			float: left;
+
+		}
+		#banner ul.list2{
+			float: left;
+			width: 612px;
+			margin:0;
+			padding: 0;
+			border:none;
+		
+		}
+		#banner ul li{
+			width:100px;
+			height: 200px;
+			float: left;
+			text-align: center;
+			border:1px solid #ddd;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="banner">
+		<div>
+		<ul class="list1">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul class="list2">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+var img=["red","blue","green","yellow","orange","black"];
+var index=0;
+$(document).ready(function change(){
+		for(var i=0;i<img.length;i++){
+			$("#banner ul.list1 li").eq(i).css("background",img[i]);
+			$("#banner ul.list2 li").eq(i).css("background",img[i]);
+		}	
+	}
+	
+);
+ $("#banner>div").mouseenter(function() {
+             if(adTimer){
+             clearInterval(adTimer);
+             }
+     }).mouseleave(function(event) {
+             adTimer =setInterval(function(){
+                /*var b=img[0];
+				img.push(b);
+				img.shift();
+				for(var i=0;i<img.length;i++){
+					$("#banner ul li").eq(i).css("background",img[i]);
+					}*/
+					//一个list采用的数组操作
+				
+				var len=-index*102+"px";
+ 				$("#banner>div").animate({left:len},1000);
+				index++;
+				if(index==img.length+1){
+					index=0;
+					$("#banner>div").animate({left:"0px"},0);
+
+				}
+             },3000);
+     });
+     $("#banner>div").trigger('mouseleave');
+</script>
+</html>
