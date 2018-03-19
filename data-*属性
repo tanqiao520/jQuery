@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document).ready(function(){
+    $("p").click(function(){
+        $(this).toggleClass("main");
+    });
+    $("p").click(function(){
+    	if(typeof($(this).attr("data-id"))=="undefined"){
+    	$(this).attr("data-id","jack");}
+    	else{
+    		$(this).removeAttr("data-id");
+    	}
+    });
+    var name=$("p[data-id]").data("id");
+    $("button").click(function(){
+    	var a="";
+    	$("p[data-id]").each(function(){
+    	 a =a+this.innerHTML;
+    		
+    	});
+    	alert(a+"已选");
+	});
+
+});
+</script>
+<style>
+
+ p:hover{
+	cursor:pointer;
+ }
+
+.main{
+    background-color:red;
+}
+</style>
+</head>
+<body>
+<div id="shop">
+<p>商品1</p>
+<p>商品2</p>
+<p>商品3</p>
+<button>点击</button>
+</div>
+</body>
+</html>
